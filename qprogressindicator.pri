@@ -1,11 +1,14 @@
-INCLUDEPATH +=                              \
-    $$PWD                                   \
+!isEmpty(QPROGRESSINDICATOR_PRI_INCLUDED):error("qprogressindicator.pri already included")
+QPROGRESSINDICATOR_PRI_INCLUDED = 1
 
-HEADERS +=                                  \
-    $$PWD/QProgressIndicator.h              \
+VERSION = 1.0.3
 
-SOURCES +=                                  \
-    $$PWD/QProgressIndicator.cpp            \
+INCLUDEPATH += $$PWD/include/QProgressIndicator
+INCLUDEPATH += $$PWD/src/qprogressindicator
 
-OTHER_FILES +=                              \
-    $$PWD/QProgressIndicator                \
+isEmpty(PREFIX) {
+    PREFIX = /opt/local
+}
+
+INCLUDEDIR = $${PREFIX}/include
+LIBDIR = $${PREFIX}/lib
